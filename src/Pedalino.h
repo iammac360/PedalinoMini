@@ -13,6 +13,7 @@ __________           .___      .__  .__                 _____  .__       .__    
 
 #include <vector>
 #include <Arduino.h>
+// #include <Arduino_GFX_Library.h>
 
 #ifndef _PEDALINO_H
 #define _PEDALINO_H
@@ -55,19 +56,6 @@ const byte pinA[] = {GPIO_NUM_36, GPIO_NUM_37, GPIO_NUM_38, GPIO_NUM_39, GPIO_NU
 #define BATTERY_PIN           GPIO_NUM_13   // Pin connected to VBAT
 #define BATTERY_ADC_EN        GPIO_NUM_21   // ADC_EN is the ADC detection enable port
 #define FASTLEDS_DATA_PIN     GPIO_NUM_5
-#elif defined ESP32_1732S019
-#undef  PEDALS
-#define PEDALS                8
-const byte pinD[] = {GPIO_NUM_2, GPIO_NUM_42, GPIO_NUM_41, GPIO_NUM_40, GPIO_NUM_39, GPIO_NUM_38, GPIO_NUM_45, GPIO_NUM_0};
-const byte pinA[] = {GPIO_NUM_47, GPIO_NUM_21, GPIO_NUM_15, GPIO_NUM_16, GPIO_NUM_17, GPIO_NUM_18, GPIO_NUM_45, GPIO_NUM_0};
-#define FACTORY_DEFAULT_PIN   GPIO_NUM_0    // Button 2
-#define USB_MIDI_IN_PIN       GPIO_NUM_4   // SDA
-#define USB_MIDI_OUT_PIN      GPIO_NUM_5   // SCL
-#define DIN_MIDI_IN_PIN       GPIO_NUM_6
-#define DIN_MIDI_OUT_PIN      GPIO_NUM_7
-#define BATTERY_PIN           GPIO_NUM_34   // Pin connected to VBAT
-#define BATTERY_ADC_EN        GPIO_NUM_14   // ADC_EN is the ADC detection enable port
-#define FASTLEDS_DATA_PIN     GPIO_NUM_7
 #elif defined TTGO_T_DISPLAY
 #undef  PEDALS
 #define PEDALS                8
@@ -94,6 +82,22 @@ const byte pinA[] = {GPIO_NUM_36, GPIO_NUM_39, GPIO_NUM_34, GPIO_NUM_35, GPIO_NU
 #define DIN_MIDI_OUT_PIN      GPIO_NUM_4
 #define BATTERY_PIN           GPIO_NUM_36   // GPIO_NUM_32 to GPIO_NUM_39 only
 #define FASTLEDS_DATA_PIN     GPIO_NUM_5
+#elif defined ESP32_1732S019
+#undef  PEDALS
+#define PEDALS                8
+const byte pinD[] = {GPIO_NUM_2, GPIO_NUM_40, GPIO_NUM_39, GPIO_NUM_38, GPIO_NUM_45, GPIO_NUM_21};
+const byte pinA[] = {GPIO_NUM_47, GPIO_NUM_21, GPIO_NUM_15, GPIO_NUM_16, GPIO_NUM_17, GPIO_NUM_18};
+#define FACTORY_DEFAULT_PIN   GPIO_NUM_0    // Button 2
+#define USB_MIDI_IN_PIN       GPIO_NUM_4   // SDA
+#define USB_MIDI_OUT_PIN      GPIO_NUM_5   // SCL
+#define DIN_MIDI_IN_PIN       GPIO_NUM_6
+#define DIN_MIDI_OUT_PIN      GPIO_NUM_7
+#define BATTERY_PIN           GPIO_NUM_34   // Pin connected to VBAT
+#define FASTLEDS_DATA_PIN     GPIO_NUM_48
+#undef  SDA
+#undef  SCL
+#define SDA                   GPIO_NUM_41
+#define SCL                   GPIO_NUM_42
 #elif defined ARDUINO_BPI_LEAF_S3
 #undef  LEDS
 #define LEDS                  1
