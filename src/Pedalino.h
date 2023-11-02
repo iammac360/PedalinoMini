@@ -94,10 +94,6 @@ const byte pinA[] = {GPIO_NUM_47, GPIO_NUM_21, GPIO_NUM_15, GPIO_NUM_16, GPIO_NU
 #define DIN_MIDI_OUT_PIN      GPIO_NUM_7
 #define BATTERY_PIN           GPIO_NUM_34   // Pin connected to VBAT
 #define FASTLEDS_DATA_PIN     GPIO_NUM_48
-#undef  SDA
-#undef  SCL
-#define SDA                   GPIO_NUM_41
-#define SCL                   GPIO_NUM_42
 #elif defined ARDUINO_BPI_LEAF_S3
 #undef  LEDS
 #define LEDS                  1

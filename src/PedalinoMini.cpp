@@ -451,12 +451,12 @@ void setup()
 #ifdef BLE
   if (bleEnabled) {
     // Release Bluetooth Classic memory
-    long before = ESP.getFreeHeap();
-    esp_bt_controller_disable();
-    esp_bt_controller_deinit();
-    esp_bt_mem_release(ESP_BT_MODE_CLASSIC_BT);
-    long after = ESP.getFreeHeap();
-    DPRINT("Bluetooth Classic disabled: %ld bytes released\n", after - before);
+    // long before = ESP.getFreeHeap();
+    // esp_bt_controller_disable();
+    // esp_bt_controller_deinit();
+    // esp_bt_mem_release(ESP_BT_MODE_CLASSIC_BT);
+    // long after = ESP.getFreeHeap();
+    // DPRINT("Bluetooth Classic disabled: %ld bytes released\n", after - before);
   }
   else {
     // Release Bluetooth memory
