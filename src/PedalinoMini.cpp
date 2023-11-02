@@ -52,7 +52,7 @@ __________           .___      .__  .__                 _____  .__       .__    
 #include "UdpMidiIn.h"
 #include "BLEMidiIn.h"
 #include "Config.h"
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
 #include "DisplayTFT.h"
 #else
 #include "DisplayOLED.h"
@@ -255,7 +255,7 @@ void setup()
   DPRINT("Flash Size %d, Flash Speed %d Hz\n",ESP.getFlashChipSize(), ESP.getFlashChipSpeed());
   DPRINT("Internal Total Heap %d, Internal Free Heap %d\n", ESP.getHeapSize(), ESP.getFreeHeap());
   DPRINT("PSRAM Total Heap %d, PSRAM Free Heap %d\n", ESP.getPsramSize(), ESP.getFreePsram());
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
   //Check type of calibration value used to characterize ADC for BATTERY_PIN (GPIO34)
   esp_adc_cal_characteristics_t adc_chars;
   esp_adc_cal_value_t           val_type = esp_adc_cal_characterize((adc_unit_t)ADC_UNIT_1, (adc_atten_t)ADC1_CHANNEL_6, (adc_bits_width_t)ADC_WIDTH_BIT_12, 1100, &adc_chars);

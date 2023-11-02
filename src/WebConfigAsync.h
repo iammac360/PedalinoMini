@@ -6020,7 +6020,7 @@ void http_handle_update_file_upload(AsyncWebServerRequest *request, String filen
     // Start with max available size
     if (Update.begin(UPDATE_SIZE_UNKNOWN, cmd)) {
       DPRINT("Update start\n");
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
     display_clear();
     display_progress_bar_title("OTA Update");
 #else
@@ -6039,7 +6039,7 @@ void http_handle_update_file_upload(AsyncWebServerRequest *request, String filen
     if (Update.write(data, len) == len) {
       if (Update.size()) {
         DPRINT("Progress: %5.1f%%\n", 100.0 * Update.progress() / Update.size());
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
         display_progress_bar_update(Update.progress(), Update.size());
 #else
 #endif
@@ -6049,7 +6049,7 @@ void http_handle_update_file_upload(AsyncWebServerRequest *request, String filen
       StreamString str;
       Update.printError(str);
       DPRINT("Update fail: %s", str.c_str());
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
       display_clear();
       display_progress_bar_title2("Fail!", str.c_str());
 #else
@@ -6061,7 +6061,7 @@ void http_handle_update_file_upload(AsyncWebServerRequest *request, String filen
   if (final) {
     if (Update.end(true)) {   //true to set the size to the current progress
       DPRINT("Update Success: %uB\n", index+len);
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
       display_clear();
       display_progress_bar_title("Success!");
 #else
@@ -6070,7 +6070,7 @@ void http_handle_update_file_upload(AsyncWebServerRequest *request, String filen
       StreamString str;
       Update.printError(str);
       DPRINT("Update fail: %s", str.c_str());
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
       display_clear();
       display_progress_bar_title2("Fail!", str.c_str());
 #else
@@ -6322,7 +6322,7 @@ inline void http_run() {
 
 #ifdef WEBSOCKET
     //webSocket.binaryAll(display.buffer, 128*64);
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
 #else
     if (wsClient) wsClient->binary(display.buffer, 128*64);
 #endif

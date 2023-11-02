@@ -9,7 +9,7 @@ __________           .___      .__  .__                 _____  .__       .__    
                                                                        https://github.com/alf45tar/PedalinoMini
  */
 
-#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
 #include <TFT_eSPI.h>
 #include <SPI.h>
 #include <Wire.h>
