@@ -30,7 +30,7 @@ void ota_begin(const char *hostname) {
     webSocket.enable(false);
     webSocket.closeAll();
 #endif
-#ifdef TTGO_T_DISPLAY
+#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
     display_clear();
     display_progress_bar_title("OTA Update");
 #else
@@ -45,7 +45,7 @@ void ota_begin(const char *hostname) {
   });
 
   ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
-#ifdef TTGO_T_DISPLAY
+#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
     display_progress_bar_update(progress, total);
 #else
     display.drawProgressBar(4, 32, 120, 8, progress / (total / 100) );
@@ -59,7 +59,7 @@ void ota_begin(const char *hostname) {
   });
 
   ArduinoOTA.onEnd([]() {
-#ifdef TTGO_T_DISPLAY
+#ifdef defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
     display_clear();
     display_progress_bar_title("Restart");
 #else
