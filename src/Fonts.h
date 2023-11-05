@@ -62,7 +62,7 @@ const uint8_t DSEG7_Classic_Bold_50[] PROGMEM = {
 };
 
 
-#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019) || defined(ESP32_ST7789)
 // Created by http://oleddisplay.squix.ch/ Consider a donation
 // In case of problems make sure that you are using the font file with the correct version!
 // Edited with https://tchapi.github.io/Adafruit-GFX-Font-Customiser/

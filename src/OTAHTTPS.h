@@ -134,7 +134,7 @@ void ota_https_update_event_handler(HttpEvent_t *event) {
         case HTTP_EVENT_ON_CONNECTED:
             DPRINT("HTTP_EVENT_ON_CONNECTED\n");
             otaProgress = 0;
-#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019) || defined(ESP32_ST7789)
     display_clear();
     display_progress_bar_title("OTA Update");
 #else
@@ -154,7 +154,7 @@ void ota_https_update_event_handler(HttpEvent_t *event) {
         case HTTP_EVENT_ON_DATA:
             DPRINT("#");
             otaProgress += event->data_len;
-#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019) || defined(ESP32_ST7789)
     display_progress_bar_update(otaProgress, OTA_PARTITION_SIZE);
 #else
     display.drawProgressBar(4, 32, 120, 8, otaProgress / (OTA_PARTITION_SIZE / 100) );
@@ -166,7 +166,7 @@ void ota_https_update_event_handler(HttpEvent_t *event) {
             break;
         case HTTP_EVENT_DISCONNECTED:
             DPRINT("HTTP_EVENT_DISCONNECTED\n");
-#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019)
+#if defined(TTGO_T_DISPLAY) || defined(ESP32_1732S019) || defined(ESP32_ST7789)
     display_clear();
     display_progress_bar_title("Restart");
 #else
