@@ -1,0 +1,2 @@
+platformio run --target upload --environment esp32doit-devkit-v1
+platformio run --target uploadfs --environment esp32doit-devkit-v1

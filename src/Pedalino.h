@@ -120,8 +120,8 @@ const byte pinA[] = {GPIO_NUM_36, GPIO_NUM_39, GPIO_NUM_34, GPIO_NUM_35, GPIO_NU
 #define FACTORY_DEFAULT_PIN   GPIO_NUM_0
 #define USB_MIDI_IN_PIN       GPIO_NUM_23   // SDA
 #define USB_MIDI_OUT_PIN      GPIO_NUM_18   // SCL
-#define DIN_MIDI_IN_PIN       GPIO_NUM_19   // RES
-#define DIN_MIDI_OUT_PIN      GPIO_NUM_21   // DC
+#define DIN_MIDI_IN_PIN       GPIO_NUM_4    // RES
+#define DIN_MIDI_OUT_PIN      GPIO_NUM_2    // DC
 #define BATTERY_PIN           GPIO_NUM_36   // GPIO_NUM_32 to GPIO_NUM_39 only
 #define FASTLEDS_DATA_PIN     GPIO_NUM_5
 #else
